@@ -1,0 +1,218 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/hapijs/code#readme">code (v4.0.0)</a>
+</h1>
+<h4>assertion library</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.code">module code</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.code.count">
+            function <span class="apidocSignatureSpan">code.</span>count
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.code.expect">
+            function <span class="apidocSignatureSpan">code.</span>expect
+            <span class="apidocSignatureSpan">(value, prefix)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.code.fail">
+            function <span class="apidocSignatureSpan">code.</span>fail
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.code.incomplete">
+            function <span class="apidocSignatureSpan">code.</span>incomplete
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.code.thrownAt">
+            function <span class="apidocSignatureSpan">code.</span>thrownAt
+            <span class="apidocSignatureSpan">(error)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">code.</span>settings</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.code" id="apidoc.module.code">module code</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.code.count" id="apidoc.element.code.count">
+        function <span class="apidocSignatureSpan">code.</span>count
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">count = function () {
+
+    return internals.count;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.code.expect" id="apidoc.element.code.expect">
+        function <span class="apidocSignatureSpan">code.</span>expect
+        <span class="apidocSignatureSpan">(value, prefix)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">expect = function (value, prefix) {
+
+    const at = exports.thrownAt();
+    const location = at.filename + ':' + at.line + '.' + at.column;
+    internals.locations[location] = true;
+    ++internals.count;
+    return new internals.Assertion(value, prefix, location);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.code.fail" id="apidoc.element.code.fail">
+        function <span class="apidocSignatureSpan">code.</span>fail
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fail = function (message) {
+
+    throw new Error(message);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.code.incomplete" id="apidoc.element.code.incomplete">
+        function <span class="apidocSignatureSpan">code.</span>incomplete
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">incomplete = function () {
+
+    const locations = Object.keys(internals.locations);
+    return locations.length ? locations : null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.code.thrownAt" id="apidoc.element.code.thrownAt">
+        function <span class="apidocSignatureSpan">code.</span>thrownAt
+        <span class="apidocSignatureSpan">(error)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">thrownAt = function (error) {
+
+    error = error || new Error();
+    const stack = typeof error.stack === 'string' ? error.stack : '';
+    const frame = stack.replace(error.toString(), '').split('\n').slice(1).filter(internals.filterLocal)[0] || '';
+    const at = frame.match(/^\s*at \(?(.+)\:(\d+)\:(\d+)\)?$/);
+    return Array.isArray(at) ? {
+        filename: at[1],
+        line: at[2],
+        column: at[3]
+    } : undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
